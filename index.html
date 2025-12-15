@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Shakespeare Sonnet Generator</title>
+<style type='text/css'>
+body {text-align:center}
+button {padding:10px;font-size:150%}
+#sonnet {width:700px;font-size:120%;margin:auto;margin-top:50px;text-align:left}
+</style>
+<script type='text/javascript' src='chain.js'></script>
+<script type='text/javascript'>
+function generate_sonnet() {
+    var sonnet = "";
+    var word = "START";
+    var prev = "\n";
+
+    while (word != "END") {
+        if (word == "START") {
+        } else if (word == "\n") {
+            sonnet += "<br />"
+        } else if (word == "." || word == "," || word == ":" || word == "!" || word == "?" || word == "..." || word == "\n"){
+            sonnet += word;
+        } else {
+            if (prev != "\n") {
+                sonnet += "\n";
+            }
+            sonnet += word;
+        }
+        prev = word;
+        word = chain[word][Math.floor(Math.random() * chain[word].length)];
+    }
+
+    document.getElementById("sonnet").innerHTML = sonnet;
+}
+</script>
+</head>
+<body>
+
+<button onclick='generate_sonnet()'>Generate new sonnet</button>
+
+<div id='sonnet'></div>
+
+</body>
+</html>
