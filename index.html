@@ -19,7 +19,7 @@ function generate_sonnet() {
             sonnet += "<br />"
         } else if (word == "--") {
             sonnet += "&mdash;"
-        } else if (word == "." || word == "," || word == ":" || word == "!" || word == "?" || word == "..." || word == "\n"){
+        } else if (word == "." || word == "," || word == ":" || word == "!" || word == "?" || word == "..." || word == ";"){
             sonnet += word;
         } else {
             if (prev != "\n" && prev != "&mdash;") {
