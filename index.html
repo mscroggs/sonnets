@@ -17,10 +17,12 @@ function generate_sonnet() {
         if (word == "START") {
         } else if (word == "\n") {
             sonnet += "<br />"
+        } else if (word == "--") {
+            sonnet += "&mdash;"
         } else if (word == "." || word == "," || word == ":" || word == "!" || word == "?" || word == "..." || word == "\n"){
             sonnet += word;
         } else {
-            if (prev != "\n") {
+            if (prev != "\n" && prev != "&mdash;") {
                 sonnet += "\n";
             }
             sonnet += word;

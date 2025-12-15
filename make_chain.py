@@ -10,7 +10,7 @@ for sonnet in sonnets.split("\n\n"):
         continue
     while "\n " in sonnet:
         sonnet = sonnet.replace("\n ", "\n")
-    for c in ".,:!?\n":
+    for c in [".", ",", ":", "!", "?", "\n", "--"]:
         sonnet = sonnet.replace(c, f" {c} ")
     while "  " in sonnet:
         sonnet = sonnet.replace("  ", " ")
