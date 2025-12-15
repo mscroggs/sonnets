@@ -9,16 +9,16 @@ button {padding:10px;font-size:150%}
 <script type='text/javascript' src='chain.js'></script>
 <script type='text/javascript'>
 function generate_sonnet() {
-    var sonnet = "";
+    var sonnet = "<p>";
     var word = "START";
     var prev = "\n";
 
     while (word != "END") {
         if (word == "START") {
         } else if (word == "\n") {
-            sonnet += "<br />"
+            sonnet += "</p><p>";
         } else if (word == "--") {
-            sonnet += "&mdash;"
+            sonnet += "&mdash;";
         } else if (word == "." || word == "," || word == ":" || word == "!" || word == "?" || word == "..." || word == ";"){
             sonnet += word;
         } else {
@@ -30,6 +30,7 @@ function generate_sonnet() {
         prev = word;
         word = chain[word][Math.floor(Math.random() * chain[word].length)];
     }
+    sonnet += "</p>";
 
     document.getElementById("sonnet").innerHTML = sonnet;
 }
